@@ -1,14 +1,21 @@
 
 
-translate([-15, -8, 0]) cylinder(r=1.5, h=50);
-translate([15, -8, 0]) cylinder(r=1.5, h=50);
-translate([0, 17, 0]) cylinder(r=1.5, h=50);
+translate([0, 0, 7]) leaf(long=false);
 
-translate([0, -6, 50]) scale([0.5, 0.8, 1]) cylinder(r=33, h=1.5);
+translate([0, 0, 30]) leaf(long=true);
+rotate([0, 0, -120]) translate([0, 0, 40]) leaf(long=true);
+rotate([0, 0, -240]) translate([0, 0, 50]) leaf(long=true);
 
-rotate([0, 0, 120]) translate([0, -6, 40]) scale([0.5, 0.8, 1]) cylinder(r=33, h=1.5);
+rotate([0, 0, 0]) translate([16, 0, 0]) cylinder(r=1.2, h=50, $fn=100);
+rotate([0, 0, 120]) translate([16, 0, 0]) cylinder(r=1.2, h=50, $fn=100);
+rotate([0, 0, 240]) translate([16, 0, 0]) cylinder(r=1.2, h=50, $fn=100);
 
-rotate([0, 0, 240]) translate([0, -6, 30]) scale([0.5, 0.8, 1]) cylinder(r=33, h=1.5);
-
-translate([0, 0, 10]) cylinder(r=16.5, h=1.5);
-
+module leaf(long=false) {
+    intersection() {
+        rotate([0, 0, 0]) translate([15, 0, 0])cylinder(r=30, h=1);
+        rotate([0, 0, 120]) translate([15, 0, 0])cylinder(r=30, h=1);
+        if (long==false) {
+            rotate([0, 0, 240]) translate([15, 0, 0])cylinder(r=30, h=1);
+        }
+    }
+}
