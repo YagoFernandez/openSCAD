@@ -1,8 +1,8 @@
 
 
-rotate([0, 0, -120]) translate([0, 0, 26]) leaf(long=true);
-rotate([0, 0, -240]) translate([0, 0, 19]) leaf(long=true);
-rotate([0, 0, 0]) translate([0, 0, 11]) leaf(long=true);
+rotate([0, 0, -120]) translate([0, 0, 27]) leaf(long=true);
+rotate([0, 0, 0]) translate([0, 0, 19]) leaf(long=true);
+rotate([0, 0, -240]) translate([0, 0, 11]) leaf(long=true);
 
 translate([0, 0, 2]) leaf(long=false);
 
@@ -21,10 +21,12 @@ color("red") rotate([0, 0, 300]) foot();
 */
 
 module post() {
+    color("Wheat")
     //translate([-1, 0, 0]) cube([2, 1, 26]);
-    cylinder(r=0.9, h=26, $fn=100);
+    cylinder(d=1.75, h=27, $fn=100);
 }
 module foot() {
+    color("Wheat")
     intersection() {
     translate([-3, 0, -5]) rotate([90, 0, 0]) rotate([0, 0, 120]) leaf(long=true);
         
@@ -35,6 +37,7 @@ module foot() {
 }
 
 module leaf(long=false) {
+    color("DarkGoldenrod")
     intersection() {
         rotate([0, 0, 0]) translate([7, 0, 0])cylinder(r=14, h=1);
         rotate([0, 0, 120]) translate([7, 0, 0])cylinder(r=14, h=1);
