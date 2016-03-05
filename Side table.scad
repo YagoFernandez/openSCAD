@@ -1,6 +1,9 @@
 
-$fs = 0.1;  // Don't generate smaller facets than 0.1 mm
-$fa = 5;    // Don't generate larger angles than 5 degrees
+MIN_FACET = 0.1;
+MAX_FACTE = 5;
+
+$fs = MIN_FACET;  
+$fa = MAX_ANGLE;    
 
 
 translate([0, 0, 0]) leg(h=50); // 25 or 50
