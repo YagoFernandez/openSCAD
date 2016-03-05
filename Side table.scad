@@ -8,18 +8,26 @@ LONG_LEG = 65;
 $fs = MIN_FACET;  
 $fa = MAX_ANGLE;    
 
-translated_leg([0, 0, 0]);
-translated_leg([30, 0, 0], LONG_LEG);
-translated_leg([0, 30, 0], LONG_LEG);
-translated_leg([30, 30, 0], LONG_LEG);
+legs();
+
+module legs() {
+	translated_leg([0, 0, 0]);
+	translated_leg([30, 0, 0], LONG_LEG);
+	translated_leg([0, 30, 0], LONG_LEG);
+	translated_leg([30, 30, 0], LONG_LEG);
+}
 
 // top
 translate([0, 0, 65]) cube([33, 33, 1.5]);
 translate([0, 33/2, 65]) cylinder(h=1.5, r=33/2);
 
-// top support
-color("blue")
-	translated_leg([0, 15, 50], 15); 
+top_support();
+
+module top_support() {
+	color("blue")
+		translated_leg([0, 15, 50], 15);
+} 
+ 
 
 
 // middle
