@@ -1,6 +1,6 @@
 
 MIN_FACET = 0.1;
-MAX_FACTE = 5;
+MAX_ANGLE = 5;
 
 $fs = MIN_FACET;  
 $fa = MAX_ANGLE;    
