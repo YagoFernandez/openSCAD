@@ -5,6 +5,9 @@ MAX_ANGLE = 5;
 SHORT_LEG = 50;
 LONG_LEG = 65;
 
+LEG_LENTH = 3;
+LEG_WIDTH = 3;
+
 $fs = MIN_FACET;  
 $fa = MAX_ANGLE;    
 
@@ -17,9 +20,22 @@ module legs() {
 	translated_leg([30, 30, 0], LONG_LEG);
 }
 
-// top
-translate([0, 0, 65]) cube([33, 33, 1.5]);
-translate([0, 33/2, 65]) cylinder(h=1.5, r=33/2);
+
+composite_top();
+
+module composite_top() {
+	top_cube();
+	top_cylinder();
+}
+module top_cube() {
+	translate([0, 0, 65]) 
+		cube([33, 33, 1.5]);
+}
+
+module top_cylinder() {
+	translate([0, 33/2, 65]) 
+		cylinder(h=1.5, r=33/2);
+} 
 
 top_support();
 
@@ -56,6 +72,6 @@ module translated_leg(position, height=SHORT_LEG) {
 }
 
 module leg(height=SHORT_LEG) {
-	cube([3, 3, height]);	
+	cube([LEG_LENTH, LEG_WIDTH, height]);	
 }
 
