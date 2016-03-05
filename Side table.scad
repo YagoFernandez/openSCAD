@@ -8,11 +8,10 @@ LONG_LEG_HEIGHT = 65;
 $fs = MIN_FACET;  
 $fa = MAX_ANGLE;    
 
-
-translate([0, 0, 0]) leg(); 
-translate([30, 0, 0]) leg(h=LONG_LEG_HEIGHT);
-translate([0, 30, 0]) leg(h=LONG_LEG_HEIGHT);
-translate([30, 30, 0]) leg(h=LONG_LEG_HEIGHT);
+translated_leg([0, 0, 0]);
+translated_leg([30, 0, 0], LONG_LEG_HEIGHT);
+translated_leg([0, 30, 0], LONG_LEG_HEIGHT);
+translated_leg([30, 30, 0], LONG_LEG_HEIGHT);
 
 // top
 translate([0, 0, 65]) cube([33, 33, 1.5]);
@@ -40,6 +39,11 @@ translate([30, 0, 25]) cube([3, 33, 3]);
 module flat_bottom() {
 translate([0, 0, 25]) cube([33, 33, 1.5]);
 translate([33/2, 33, 25]) cylinder(h=1.5, r=33/2);
+}
+
+module translated_leg(position, height=SHORT_LEG_HEIGHT) {
+	translate(position) 
+		leg(height);
 }
 
 module leg(h=SHORT_LEG_HEIGHT) {
