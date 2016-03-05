@@ -18,7 +18,7 @@ translate([0, 0, 65]) cube([33, 33, 1.5]);
 translate([0, 33/2, 65]) cylinder(h=1.5, r=33/2);
 
 // top support
-color("blue")translate([0, 15, 50]) leg(h=15); // hide or show
+color("blue")translate([0, 15, 50]) leg(15); // hide or show
 
 
 // middle
@@ -43,9 +43,10 @@ translate([33/2, 33, 25]) cylinder(h=1.5, r=33/2);
 
 module translated_leg(position, height=SHORT_LEG_HEIGHT) {
 	translate(position) 
-		leg(height);
+		leg(height);		
 }
 
-module leg(h=SHORT_LEG_HEIGHT) {
-    cube([3, 3, h]);
+module leg(height=SHORT_LEG_HEIGHT) {
+	cube([3, 3, height]);	
 }
+
