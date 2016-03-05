@@ -18,7 +18,8 @@ translate([0, 0, 65]) cube([33, 33, 1.5]);
 translate([0, 33/2, 65]) cylinder(h=1.5, r=33/2);
 
 // top support
-color("blue")translate([0, 15, 50]) leg(15); // hide or show
+color("blue")
+	translated_leg([0, 15, 50], 15); 
 
 
 // middle
