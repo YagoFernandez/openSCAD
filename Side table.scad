@@ -40,7 +40,7 @@ module top_cylinder() {
 	position = [0, TOP_WIDTH/2, TOP_Z_OFFSET];
 
 	translate(position) 
-		cylinder(h=1.5, r=33/2);
+		cylinder(h=TOP_HEIGHT, r=TOP_WIDTH/2);
 } 
 
 module top_support() {
