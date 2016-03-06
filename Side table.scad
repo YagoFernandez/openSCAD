@@ -26,16 +26,8 @@ module legs() {
 }
 
 module composite_top() {
-	top_cube();	
+	composite_cube([0, 0, TOP_Z_OFFSET], [TOP_WIDTH, TOP_DEPTH, TOP_HEIGHT]);
 	top_cylinder();
-}
-
-module top_cube() {
-	position = [0, 0, TOP_Z_OFFSET];
-	dimensions = [TOP_WIDTH, TOP_DEPTH, TOP_HEIGHT];
-
-	translate(position)
-		cube(dimensions);
 }
 
 module top_cylinder() {
@@ -51,16 +43,8 @@ module top_support() {
 } 
 
 module composite_middle() {
-	middle_cube();
+	composite_cube([0, 0, MIDDLE_Z_OFFSET], [TOP_WIDTH, TOP_DEPTH, TOP_HEIGHT]);
 	middle_cylinder();
-}
-
-module middle_cube() {
-	position = [0, 0, MIDDLE_Z_OFFSET];
-	dimensions = [TOP_WIDTH, TOP_DEPTH, TOP_HEIGHT];
-
-	translate(position) 
-		cube(dimensions);
 }
 
 module middle_cylinder() {
