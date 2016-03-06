@@ -13,6 +13,8 @@ TOP_WIDTH = 33;
 TOP_DEPTH = 33;
 TOP_HEIGHT = 1.5;
 
+MIDDLE_Z_OFFSET = 50;
+
 $fs = MIN_FACET;  
 $fa = MAX_ANGLE;    
 
@@ -24,7 +26,7 @@ module legs() {
 }
 
 module composite_top() {
-	top_cube();
+	top_cube();	
 	top_cylinder();
 }
 
@@ -54,11 +56,23 @@ module composite_middle() {
 }
 
 module middle_cube() {
-	translate([0, 0, 50]) cube([33, 33, 1.5]);
+	position = [0, 0, MIDDLE_Z_OFFSET];
+	dimensions = [TOP_WIDTH, TOP_DEPTH, TOP_HEIGHT];
+
+	translate(position) 
+		cube(dimensions);
 }
 
 module middle_cylinder() {
-	translate([33/2, 0, 50]) cylinder(h=1.5, r=33/2);
+	position = [TOP_WIDTH/2, 0, MIDDLE_Z_OFFSET];
+
+	translate(position) 
+		cylinder(h=TOP_HEIGHT, r=TOP_WIDTH/2);
+}
+
+module composite_cube(position, dimensions) {
+	translate(position) 
+		cube(dimensions);
 }
 
 module slanted_bottom() {
