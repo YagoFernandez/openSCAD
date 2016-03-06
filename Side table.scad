@@ -27,15 +27,8 @@ module legs() {
 
 module composite_top() {
 	composite_cube([0, 0, TOP_Z_OFFSET], [TOP_WIDTH, TOP_DEPTH, TOP_HEIGHT]);
-	top_cylinder();
+	composite_cylinder([0, TOP_WIDTH/2, TOP_Z_OFFSET], TOP_HEIGHT, TOP_WIDTH/2);
 }
-
-module top_cylinder() {
-	position = [0, TOP_WIDTH/2, TOP_Z_OFFSET];
-
-	translate(position) 
-		cylinder(h=TOP_HEIGHT, r=TOP_WIDTH/2);
-} 
 
 module top_support() {
 	color("blue")
@@ -44,19 +37,17 @@ module top_support() {
 
 module composite_middle() {
 	composite_cube([0, 0, MIDDLE_Z_OFFSET], [TOP_WIDTH, TOP_DEPTH, TOP_HEIGHT]);
-	middle_cylinder();
-}
-
-module middle_cylinder() {
-	position = [TOP_WIDTH/2, 0, MIDDLE_Z_OFFSET];
-
-	translate(position) 
-		cylinder(h=TOP_HEIGHT, r=TOP_WIDTH/2);
+	composite_cylinder([TOP_WIDTH/2, 0, MIDDLE_Z_OFFSET], TOP_HEIGHT, TOP_WIDTH/2);
 }
 
 module composite_cube(position, dimensions) {
 	translate(position) 
 		cube(dimensions);
+}
+
+module composite_cylinder(position, heigth, radius) {
+	translate(position) 
+		cylinder(h=heigth, r=radius);
 }
 
 module slanted_bottom() {
