@@ -48,6 +48,19 @@ module top_support() {
 		translated_leg([0, 15, 50], 15);
 } 
 
+module composite_middle() {
+	middle_cube();
+	middle_cylinder();
+}
+
+module middle_cube() {
+	translate([0, 0, 50]) cube([33, 33, 1.5]);
+}
+
+module middle_cylinder() {
+	translate([33/2, 0, 50]) cylinder(h=1.5, r=33/2);
+}
+
 module slanted_bottom() {
 	translate([0, 0, 25]) rotate([-30, 0 , 0]) cube([33, 24, 1.5]);
 	translate([0, 20, 13]) rotate([60, 0 , 0]) cube([33, 15, 1.5]);
@@ -69,8 +82,7 @@ composite_top();
 top_support();
 
 // middle
-translate([0, 0, 50]) cube([33, 33, 1.5]);
-translate([33/2, 0, 50]) cylinder(h=1.5, r=33/2);
+composite_middle();
 
 // bottom
  slanted_bottom();
