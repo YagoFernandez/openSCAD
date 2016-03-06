@@ -55,11 +55,6 @@ module slanted_bottom() {
 	translate([30, 0, 25]) cube([3, 33, 3]);
 }
 
-module flat_bottom() {
-	translate([0, 0, 25]) cube([33, 33, 1.5]);
-	translate([33/2, 33, 25]) cylinder(h=1.5, r=33/2);
-}
-
 module translated_leg(position, height=SHORT_LEG) {
 	translate(position) 
 		leg(height);		
@@ -78,7 +73,6 @@ translate([0, 0, 50]) cube([33, 33, 1.5]);
 translate([33/2, 0, 50]) cylinder(h=1.5, r=33/2);
 
 // bottom
-// flat_bottom();
  slanted_bottom();
 
 
