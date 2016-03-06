@@ -1,7 +1,3 @@
-
-MIN_FACET = 0.1;
-MAX_ANGLE = 5;
-
 SHORT_LEG = 50;
 LONG_LEG = 65;
 
@@ -13,10 +9,7 @@ TOP_WIDTH = 33;
 TOP_DEPTH = 33;
 TOP_HEIGHT = 1.5;
 
-MIDDLE_Z_OFFSET = 50;
-
-$fs = MIN_FACET;  
-$fa = MAX_ANGLE;    
+MIDDLE_Z_OFFSET = 50;  
 
 module legs() {
 	translated_leg([0, 0, 0]);
@@ -67,14 +60,13 @@ module leg(height=SHORT_LEG) {
 }
 
 legs(); 
+
 composite_top();
 top_support();
 
-// middle
 composite_middle();
 
-// bottom
- slanted_bottom();
+slanted_bottom();
 
 
 
