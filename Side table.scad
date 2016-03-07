@@ -83,7 +83,7 @@ module bottom_supports() {
 
 module bottom_support(position) {
 	
-	dimensions = [3, 33, 3];
+	dimensions = [3, TOP_DEPTH, 3];
 	
 	translate(position) 
 		cube(dimensions);
