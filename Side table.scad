@@ -12,10 +12,12 @@ TOP_HEIGHT = 1.5;
 MIDDLE_Z_OFFSET = 50;  
 
 module legs() {
-	translated_leg([0, 0, 0]);
-	translated_leg([30, 0, 0], LONG_LEG);
-	translated_leg([0, 30, 0], LONG_LEG);
-	translated_leg([30, 30, 0], LONG_LEG);
+	positions = [[0, 0, 0], [30, 0, 0], [0, 30, 0], [30, 30, 0]];
+	heights = [SHORT_LEG, LONG_LEG, LONG_LEG, LONG_LEG];
+
+	for (index = [0:len(positions)]) {
+		translated_leg(positions[index], heights[index]);
+	}
 }
 
 module composite_top() {
