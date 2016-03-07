@@ -9,6 +9,8 @@ TOP_WIDTH = 33;
 TOP_DEPTH = 33;
 TOP_HEIGHT = 1.5;
 
+TOP_SUPPORT_HEIGHT = 15;
+
 MIDDLE_Z_OFFSET = 50;  
 
 module legs() {
@@ -26,8 +28,11 @@ module composite_top() {
 }
 
 module top_support() {
+	
+	position = [0, 15, MIDDLE_Z_OFFSET];
+
 	color("blue")
-		translated_leg([0, 15, 50], 15);
+		translated_leg(position, TOP_SUPPORT_HEIGHT);
 } 
 
 module composite_middle() {
