@@ -75,7 +75,6 @@ module bottom_panel(position, rotation, dimensions) {
 module bottom_supports() {
 	
 	positions = [[0, 0, 25], [30, 0, 25]];
-	dimensions = [[3, 33, 3], [3, 33, 3]];
 
 	for (position = positions) {
 		bottom_support(position);
