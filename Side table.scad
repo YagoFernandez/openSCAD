@@ -52,15 +52,14 @@ module composite_cylinder(position, heigth, radius) {
 
 module slanted_bottom() {
 	bottom_panels();
-	translate([0, 0, 25]) cube([3, 33, 3]);
-	translate([30, 0, 25]) cube([3, 33, 3]);
+	bottom_supports();
 }
 
 module bottom_panels() {
 	
 	positions = [[0, 0, 25], [0, 20, 13]];
 	rotations = [[-30, 0 , 0], [60, 0 , 0]];
-	dimensions = [[33, 24, 1.5], [33, 15, 1.5]];
+	dimensions = [[TOP_WIDTH, 24, 1.5], [TOP_WIDTH, 15, 1.5]];
 
 	for (index = [0:len(positions)]) {
 		bottom_panel(positions[index], rotations[index], dimensions[index]);
@@ -71,6 +70,24 @@ module bottom_panel(position, rotation, dimensions) {
 	translate(position) 
 		rotate(rotation) 
 			cube(dimensions);
+}
+
+module bottom_supports() {
+	
+	positions = [[0, 0, 25], [30, 0, 25]];
+	dimensions = [[3, 33, 3], [3, 33, 3]];
+
+	for (position = positions) {
+		bottom_support(position);
+	}
+}
+
+module bottom_support(position) {
+	
+	dimensions = [3, 33, 3];
+	
+	translate(position) 
+		cube(dimensions);
 }
 
 module translated_leg(position, height=SHORT_LEG) {
