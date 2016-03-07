@@ -57,8 +57,14 @@ module slanted_bottom() {
 }
 
 module bottom_panels() {
-	bottom_panel([0, 0, 25], [-30, 0 , 0], [33, 24, 1.5]);
-	bottom_panel([0, 20, 13], [60, 0 , 0], [33, 15, 1.5]);
+	
+	positions = [[0, 0, 25], [0, 20, 13]];
+	rotations = [[-30, 0 , 0], [60, 0 , 0]];
+	dimensions = [[33, 24, 1.5], [33, 15, 1.5]];
+
+	for (index = [0:len(positions)]) {
+		bottom_panel(positions[index], rotations[index], dimensions[index]);
+	}
 }
 
 module bottom_panel(position, rotation, dimensions) {
