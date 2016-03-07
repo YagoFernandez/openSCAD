@@ -51,10 +51,20 @@ module composite_cylinder(position, heigth, radius) {
 }
 
 module slanted_bottom() {
-	translate([0, 0, 25]) rotate([-30, 0 , 0]) cube([33, 24, 1.5]);
-	translate([0, 20, 13]) rotate([60, 0 , 0]) cube([33, 15, 1.5]);
+	bottom_panels();
 	translate([0, 0, 25]) cube([3, 33, 3]);
 	translate([30, 0, 25]) cube([3, 33, 3]);
+}
+
+module bottom_panels() {
+	bottom_panel([0, 0, 25], [-30, 0 , 0], [33, 24, 1.5]);
+	bottom_panel([0, 20, 13], [60, 0 , 0], [33, 15, 1.5]);
+}
+
+module bottom_panel(position, rotation, dimensions) {
+	translate(position) 
+		rotate(rotation) 
+			cube(dimensions);
 }
 
 module translated_leg(position, height=SHORT_LEG) {
